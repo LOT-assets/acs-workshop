@@ -32,6 +32,8 @@ IMPORTANT: This is not an official RH Advanced Cluster Security guide or worksho
 
 == Contributors
 
+This is a customized version of the original Hands-On developed by Red Hat Scholars. This version was developed for Banorte by https://github.com/vagnerfarias[Vagner Fairas] and https://github.com/jcepedav[Juan Carlos Cepeda].
+
 This workshop has been developed and is maintained by https://github.com/rcarrata[Roberto Carratalá],  https://github.com/jadebustos[Jose Angel de Bustos] and https://github.com/josgonza-rh[Jose Antonio Gonzalez Prada].
 
 Thanks all the https://github.com/redhat-scholars/acs-workshop/graphs/contributors[contributors] that reviewed and contributed to this workshop!!
