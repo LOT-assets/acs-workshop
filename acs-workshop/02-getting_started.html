@@ -920,48 +920,11 @@ Independent of which option to install you used, you need to deploy the ACS Demo
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-galaxy collection install kubernetes.core
 pip install kubernetes jmespath
-git clone <a href="https://github.com/rh-mobb/rhacs-demo" class="bare">https://github.com/rh-mobb/rhacs-demo</a>
+git clone <a href="https://github.com/LOT-assets/rhacs-demo" class="bare">https://github.com/LOT-assets/rhacs-demo</a>
 cd rhacs-demo</code></pre>
 </div>
 </div>
 </li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Please go to rhacs-demo/roles/ocp4_deploy_acs_demo_apps/templates/network_anomalies/peers.json.j2 and remove peers.peer.entity.name and peers.peer.entity.namespace so that it looks like below:
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">{
-    "peers": [
-        {
-            "peer": {
-                "entity": {
-                    "id": "{{item.json.id}}",
-                    "type": "DEPLOYMENT",
-                },
-                "ingress": false,
-                "port": 8080,
-                "protocol": "L4_PROTOCOL_TCP",
-                "state": "active"
-            },
-            "status": "ANOMALOUS"
-        }
-    ]
-}</code></pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
 <p>Apply the ansible demo into the cluster:</p>
 <div class="admonitionblock warning">
@@ -990,6 +953,22 @@ you must be logged to the OpenShift cluster before you execute the playbook.
 </table>
 </div>
 </li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In this environment the admin password is <strong>stackrox</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>After the Playbook execution (and if everything worked properly), the output will be the following:</p>
 <div class="listingblock console-output">
