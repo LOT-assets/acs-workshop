@@ -117,3 +117,37 @@ Using OpenShift-API-URL *3.*, myuser/mypass *2.*
 image::prereqs/loginsuccess.png[Login Successfull, 800]
 
 And then you are ready for review the ACM installation.
+
+== Review the health of the services
+
+Becuase this environment is prepared with a special aprovision method, ocasionally, don't all service start up correctly. One of these cases detected is ACS scanner database.
+
+If you detect that information of the images is nos correct or incomplete in any lab, please follow the next steps:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----
+oc get pods -n stackrox
+----
+
+If the output shows that scanner-db is *Init:0/1*
+
+image::prereqs/scanner-pods.png[Pods with errors, 800]
+
+The container-init isn't sincronized. Resolve this using the following command.
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----
+oc delete pod -l app=scanner-db -n stackrox
+----
+
+This procedure takes a few seconds. When this is done, please check that all pods are *running*
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----
+oc get pods -n stackrox
+----
+
+image::prereqs/scanner-pods-running.png[Pods without errors, 800]
