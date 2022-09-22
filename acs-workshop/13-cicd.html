@@ -381,69 +381,7 @@
 <p><a href="https://cloud.redhat.com/blog/using-openshift-pipelines-to-automate-red-hat-advanced-cluster-security-for-kubernetes">Using OpenShift Pipelines to Automate Red Hat Advanced Cluster Security for Kubernetes</a></p>
 </div>
 <div class="paragraph">
-<p>TODO: finish the writing.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="install_devsecops_pipelines"><a class="anchor" href="#install_devsecops_pipelines"></a>Installing RHACS DevSecOps Pipeline</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Based in <a href="https://github.com/rcarrata/devsecops-demo">DevSecOps Pipeline Repo</a> we will deploy in our Openshift cluster a full DevSecOps pipeline example to see the integration of RHACS to a CICD Pipeline.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/cicd/00-acs_cicd_overview.png" alt="RHACS CICD 1" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Download the demo and install the prereqs:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone <a href="https://github.com/rcarrata/devsecops-demo.git" class="bare">https://github.com/rcarrata/devsecops-demo.git</a>
-ansible-galaxy collection install community.kubernetes
-cd devsecops-demo</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Install the demo in Stackrox:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone <a href="https://github.com/rcarrata/devsecops-demo.git" class="bare">https://github.com/rcarrata/devsecops-demo.git</a>
-ansible-galaxy collection install community.kubernetes
-cd devsecops-demo</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Check the status of the devsecops pipelines demo:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./status.sh</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="run_devsecops_pipelines"><a class="anchor" href="#run_devsecops_pipelines"></a>Running the demo of DevSecOps Pipeline</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Run the demo with:</p>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">./demo.sh start</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Go to the namespace of <code><code>cicd</code></code> and check the Pipelines resources with the PipelineRun like the following:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/cicd/01-devsecops_pipeline.png" alt="RHACS CICD 2" width="800">
-</div>
+<p>If you are interested in making this demo, you can deploy this one using <a href="https://github.com/LOT-assets/SecurityDemos/blob/master/2021Labs/OpenShiftSecurity/documentation/lab4.adoc" class="bare">https://github.com/LOT-assets/SecurityDemos/blob/master/2021Labs/OpenShiftSecurity/documentation/lab4.adoc</a></p>
 </div>
 <div class="paragraph">
 <p>For more information check the <a href="https://github.com/rcarrata/devsecops-demo">original repo</a> or the <a href="https://github.com/RedHatDemos/SecurityDemos/blob/master/2021Labs/OpenShiftSecurity/documentation/lab4.adoc">Security Lab guide</a> that have all the details and caveats.</p>
