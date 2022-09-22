@@ -97,7 +97,7 @@ metadata:
   name: openshift-compliance	
 ----
 
-* Create a Namespace object YAML file by running:
+* Create a Namespace object running:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -120,7 +120,7 @@ spec:
   - openshift-compliance	
 ----
 
-* Create the Compliance Operator OperatorGroup object YAML file by running:
+* Create the Compliance Operator OperatorGroup object running:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -214,7 +214,7 @@ settingsRef:
   name: default
 ----
 
-* Create the resource using the follow command:
+* Create the resource using the following command:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	

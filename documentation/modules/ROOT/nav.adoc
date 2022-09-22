@@ -78,9 +78,4 @@
 ** xref:13-cicd#install_devsecops_pipelines[Installing RHACS DevSecOps Pipeline]
 ** xref:13-cicd#run_devsecops_pipelines[Running the demo of DevSecOps Pipeline]
 
-* xref:14-apicli.adoc[RHACS API and CLI]
-** xref:14-apicli.adoc#cli-overview[RHACS CLI Overview]
-** xref:14-apicli.adoc#cli-integration[RHACS CLI Integration]
-** xref:14-apicli.adoc#api-overview[RHACS API Overview]
-
 * xref:15-contributors.adoc[Contributors]
