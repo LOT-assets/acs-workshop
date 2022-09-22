@@ -275,32 +275,8 @@ IMPORTANT: Independent of which option to install you used, you need to deploy t
 ----
 ansible-galaxy collection install kubernetes.core
 pip install kubernetes jmespath
-git clone https://github.com/rh-mobb/rhacs-demo
+git clone https://github.com/LOT-assets/rhacs-demo
 cd rhacs-demo
-----
-
-NOTE: Please go to rhacs-demo/roles/ocp4_deploy_acs_demo_apps/templates/network_anomalies/peers.json.j2 and remove peers.peer.entity.name and peers.peer.entity.namespace so that it looks like below:
-
-[.console-input]
-[source,yaml,subs="attributes+,+macros"]	
-----	
-{
-    "peers": [
-        {
-            "peer": {
-                "entity": {
-                    "id": "{{item.json.id}}",
-                    "type": "DEPLOYMENT",
-                },
-                "ingress": false,
-                "port": 8080,
-                "protocol": "L4_PROTOCOL_TCP",
-                "state": "active"
-            },
-            "status": "ANOMALOUS"
-        }
-    ]
-}
 ----
 
 . Apply the ansible demo into the cluster:
@@ -313,6 +289,8 @@ WARNING: you must be logged to the OpenShift cluster before you execute the play
 ansible-playbook rhacs-demo.yaml -e stackrox_central_admin_password=[your_pass]<1>
 ----
 <1> The same password you obtained in the step 1 of the ``ACS login`` section.
+
+TIP: In this environment the admin password is *stackrox*
 
 . After the Playbook execution (and if everything worked properly), the output will be the following:
 +
