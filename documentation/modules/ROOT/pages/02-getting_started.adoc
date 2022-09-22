@@ -4,10 +4,11 @@ include::_attributes.adoc[]
 
 We will install ACS thought the RHACS Operator and afterwards we will install an small demo that will serve examples to our workshop.
 
-NOTE: You can request in RHPDS the environment already installed (including the demo) - Go to Multi-Product Demo -> Openshift 4 Advanced Cluster Security 3
+NOTE: We have installed ACM and done the basic configuration for you. The following steps are for reference only. Please continue with the instructions from the point *RHACS login*.
 
 [#install_acs_operator]
 == RHACS Operator Installation
+NOTE: Already executed - You do not need to do anything.
 
 . Find and the Advanced Cluster Security Operator from the Operator Hub.
 +
@@ -31,6 +32,7 @@ image::install/04_operator_ready.png[ACS Operator 5, 800]
 
 [#install_acs_central]
 == RHACS Central Cluster Installation
+NOTE: Already executed - You do not need to do anything.
 
 In this section we will deploy the Central component in the lab cluster. The Central is made up two main deployments:
 
@@ -83,6 +85,7 @@ spec:
 
 [#install_acs_central_web_console]
 === With Web Console
+NOTE: Already executed - You do not need to do anything.
 
 . From the operator _ready screen_ by clicking on ``View Operator`` or navigating to the **Operators → Installed Operators** page. Then, under the **Provided APIs** section, select ``Create Central`` on the ``Central`` API:
 +
@@ -109,6 +112,7 @@ image::install/04_22_create_central_resource.png[ACS Operator 512, 800]
 
 [#install_acs_central_oc_client]
 === With OC client
+NOTE: Already executed - You do not need to do anything.
 
 . Create the ``central`` custom resource using the template file provided in this repository.
 +
@@ -127,6 +131,7 @@ oc get pods -n stackrox -w
 ----
 
 === RHACS login
+NOTE: Please continue from here.
 
 . Once the installation is complete, obtain and copy the generated admin password from the ``central-htpasswd`` secret.
 .. Using the command line:
@@ -155,10 +160,16 @@ image::install/05_2_login.png[ACS Operator 62, 800]
 [#config_acs_securedcluster]
 == RHACS Secured Cluster Configuration
 
+NOTE: Already executed - You do not need to do anything.
+
+From ACM Central Cluster, you can assure multiple OCP or Kubernetes clusters. If you want to add more clusters to central, you will follow the next instructions.
+
 To import a cluster into ACS, you need to generate a cluster init bundle containing TLS secrets for Sensor, Collectors, and Admission Controllers.
 
 [#config_acs_securedcluster_init_bundle]
 === Generating an init bundle by using the RHACS portal
+
+NOTE: Already executed - You do not need to do anything.
 
 . Generate the cluster init bundle by accessing the ``Integration`` subsection in the ``Platform Configuration`` section 
 +
@@ -187,6 +198,7 @@ You can open the yaml file, copy the content and paste it to the web console usi
 
 [#config_acs_securedcluster_install_scs]
 === Installing secured cluster services
+NOTE: Already executed - You do not need to do anything.
 
 NOTE: This workshop uses the same cluster as central and secured cluster. In a real time scenario there will be many different secured clusters. Please ensure to install the ACS Operator in all the secured cluster in order to manage the SecuredCluster CR.
 
@@ -243,6 +255,9 @@ Or as in the previous section, with the **+Add → Import YAML** path.
 ----	
 oc get pods -n stackrox -w
 ----
+
+
+=== Verify Secured Cluster import
 
 . At the end of the installation, go to the central console and check the correct attachment of the secured cluster. 
 +

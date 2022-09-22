@@ -96,4 +96,8 @@ Client Version: 4.7.0-202102130115.p0-c66c03f
 Kubernetes Version: {kubernetes-version}	
 ----
 
-And then you are ready for installing RHACS on Openshift.
+== Login to OpenShift Cluster
+
+
+
+And then you are ready for review the ACM installation.
