@@ -279,6 +279,30 @@ git clone https://github.com/rh-mobb/rhacs-demo
 cd rhacs-demo
 ----
 
+NOTE: Please go to rhacs-demo/roles/ocp4_deploy_acs_demo_apps/templates/network_anomalies/peers.json.j2 and remove peers.peer.entity.name and peers.peer.entity.namespace so that it looks like below:
+
+[.console-input]
+[source,yaml,subs="attributes+,+macros"]	
+----	
+{
+    "peers": [
+        {
+            "peer": {
+                "entity": {
+                    "id": "{{item.json.id}}",
+                    "type": "DEPLOYMENT",
+                },
+                "ingress": false,
+                "port": 8080,
+                "protocol": "L4_PROTOCOL_TCP",
+                "state": "active"
+            },
+            "status": "ANOMALOUS"
+        }
+    ]
+}
+----
+
 . Apply the ansible demo into the cluster:
 +
 WARNING: you must be logged to the OpenShift cluster before you execute the playbook.
