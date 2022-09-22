@@ -114,4 +114,6 @@ oc login <OpenShift-API-URL> --username=<myuser> --password=<mypass>
 
 Using OpenShift-API-URL *3.*, myuser/mypass *2.*
 
+image::prereqs/loginsuccess.png[Login Successfull, 800]
+
 And then you are ready for review the ACM installation.
