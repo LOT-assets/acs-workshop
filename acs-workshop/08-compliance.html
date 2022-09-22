@@ -529,14 +529,9 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Create a Namespace object YAML file by running:</p>
+<p>Create a file named co-ns.yaml with the follow content:</p>
 </li>
 </ul>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-ns.yaml</code></pre>
-</div>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -549,7 +544,19 @@ metadata:
 <div class="ulist">
 <ul>
 <li>
-<p>Create the Compliance Operator OperatorGroup object YAML file by running:</p>
+<p>Create a Namespace object YAML file by running:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-ns.yaml</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a file named co-og.yaml with the follow content:</p>
 </li>
 </ul>
 </div>
@@ -565,6 +572,13 @@ spec:
   - openshift-compliance</code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the Compliance Operator OperatorGroup object YAML file by running:</p>
+</li>
+</ul>
+</div>
 <div class="listingblock console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-og.yaml</code></pre>
@@ -573,7 +587,7 @@ spec:
 <div class="ulist">
 <ul>
 <li>
-<p>Create the Compliance Operator Subscription object YAML file by running:</p>
+<p>Create a file named co-subs.yaml with the follow content:</p>
 </li>
 </ul>
 </div>
@@ -591,6 +605,13 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace</code></pre>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the Compliance Operator Subscription object running:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -646,12 +667,10 @@ rhcos4-openshift-compliance-pp-c7b548bd-k4sz2   1/1     Running   0          3m2
 <li>
 <p>Create a ScanSettingBinding object that binds to the default ScanSetting object and scans the cluster using the cis and cis-node profiles.</p>
 </li>
+<li>
+<p>Create a file named co-scan.yaml with the follow content:</p>
+</li>
 </ul>
-</div>
-<div class="listingblock console-input">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-scan.yaml</code></pre>
-</div>
 </div>
 <div class="listingblock console-output">
 <div class="content">
@@ -668,6 +687,18 @@ settingsRef:
   apiGroup: compliance.openshift.io/v1alpha1
   kind: ScanSetting
   name: default</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the resource using the follow command:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f co-scan.yaml</code></pre>
 </div>
 </div>
 <div class="ulist">
