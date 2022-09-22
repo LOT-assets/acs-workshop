@@ -86,13 +86,7 @@ Red Hat Advanced Cluster Security for Kubernetes supports OpenShift Container Pl
 
 Follow the next steps to install and integrate the Compliance Operator with Advanced Cluster Security.
 
-* Create a Namespace object YAML file by running:
-
-[.console-input]
-[source,bash,subs="attributes+,+macros"]	
-----	
-oc apply -f co-ns.yaml
-----
+* Create a file named co-ns.yaml with the follow content:
 
 [.console-output]
 [source,bash,subs="attributes+,+macros"]	
@@ -103,7 +97,15 @@ metadata:
   name: openshift-compliance	
 ----
 
-* Create the Compliance Operator OperatorGroup object YAML file by running:
+* Create a Namespace object YAML file by running:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----	
+oc apply -f co-ns.yaml
+----
+
+* Create a file named co-og.yaml with the follow content:
 
 [.console-output]
 [source,bash,subs="attributes+,+macros"]	
@@ -118,13 +120,15 @@ spec:
   - openshift-compliance	
 ----
 
+* Create the Compliance Operator OperatorGroup object YAML file by running:
+
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
 ----	
 oc apply -f co-og.yaml
 ----
 
-* Create the Compliance Operator Subscription object YAML file by running:
+* Create a file named co-subs.yaml with the follow content:
 
 [.console-output]
 [source,bash,subs="attributes+,+macros"]	
@@ -141,6 +145,8 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
 ----
+
+* Create the Compliance Operator Subscription object running:
 
 [.console-input]
 [source,bash,subs="attributes+,+macros"]	
@@ -188,11 +194,7 @@ We now want to make sure that the nodes are scanned appropiately. For this, weâ€
 
 * Create a ScanSettingBinding object that binds to the default ScanSetting object and scans the cluster using the cis and cis-node profiles.
 
-[.console-input]
-[source,bash,subs="attributes+,+macros"]	
-----	
-oc apply -f co-scan.yaml
-----
+* Create a file named co-scan.yaml with the follow content:
 
 [.console-output]
 [source,bash,subs="attributes+,+macros"]	
@@ -211,6 +213,15 @@ settingsRef:
   kind: ScanSetting
   name: default
 ----
+
+* Create the resource using the follow command:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----	
+oc apply -f co-scan.yaml
+----
+
 
 * Check the scansettingbinding generated:
 
