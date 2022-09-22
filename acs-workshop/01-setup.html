@@ -555,6 +555,51 @@ Kubernetes Version: v1.20.2</code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_review_the_health_of_the_services"><a class="anchor" href="#_review_the_health_of_the_services"></a>Review the health of the services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Becuase this environment is prepared with a special aprovision method, ocasionally, don&#8217;t all service start up correctly. One of these cases detected is ACS scanner database.</p>
+</div>
+<div class="paragraph">
+<p>If you detect that information of the images is nos correct or incomplete in any lab, please follow the next steps:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n stackrox</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the output shows that scanner-db is <strong>Init:0/1</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prereqs/scanner-pods.png" alt="Pods with errors" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>The container-init isn&#8217;t sincronized. Resolve this using the following command.</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc delete pod -l app=scanner-db -n stackrox</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This procedure takes a few seconds. When this is done, please check that all pods are <strong>running</strong></p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get pods -n stackrox</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/prereqs/scanner-pods-running.png" alt="Pods without errors" width="800">
+</div>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="index.html">ACS Workshop</a></span>
   <span class="next"><a href="02-getting_started.html">Getting Started</a></span>
