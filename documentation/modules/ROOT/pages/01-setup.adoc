@@ -98,6 +98,20 @@ Kubernetes Version: {kubernetes-version}
 
 == Login to OpenShift Cluster
 
+Using the information provided by the instructor, connect to the OpenShift console.
 
+image::prereqs/labinformation.png[Lab Information, 800]
+
+First, in the browser, connect to OpenShift Console *1.* using the credentials provided in *2.* and verify the access to the cluster
+
+Also, verify the connection via CLI using this command on the terminal or command line:
+
+[.console-input]
+[source,bash,subs="attributes+,+macros"]	
+----	
+oc login <OpenShift-API-URL> --username=<myuser> --password=<mypass>
+----
+
+Using OpenShift-API-URL *3.*, myuser/mypass *2.*
 
 And then you are ready for review the ACM installation.
